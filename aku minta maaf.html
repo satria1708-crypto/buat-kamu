@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aku minta maaf</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#ff9ecf,#ffd6ec,#c8f7ff);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+/* Bubble Background */
+.bubble{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,0.4);
+    animation:naik 10s linear infinite;
+}
+
+.bubble:nth-child(1){
+    width:80px;
+    height:80px;
+    left:10%;
+}
+
+.bubble:nth-child(2){
+    width:120px;
+    height:120px;
+    left:70%;
+    animation-duration:12s;
+}
+
+.bubble:nth-child(3){
+    width:60px;
+    height:60px;
+    left:40%;
+    animation-duration:8s;
+}
+
+@keyframes naik{
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-120vh);
+    }
+}
+
+.container{
+    position:relative;
+    z-index:2;
+    width:420px;
+    background:white;
+    padding:30px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    animation:muncul 1s ease;
+}
+
+@keyframes muncul{
+    from{
+        opacity:0;
+        transform:scale(0.5);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+h1{
+    color:#ff4d88;
+}
+
+/* INPUT ANIMATION */
+.input-box{
+    position:relative;
+    margin-top:20px;
+}
+
+.input-box input,
+.input-box textarea{
+    width:100%;
+    padding:15px;
+    border:none;
+    outline:none;
+    border-radius:15px;
+    background:#f3f3f3;
+    font-size:16px;
+}
+
+.input-box label{
+    position:absolute;
+    left:15px;
+    top:15px;
+    color:#999;
+    pointer-events:none;
+    transition:0.4s;
+    background:white;
+    padding:0 5px;
+    border-radius:10px;
+}
+
+/* Animasi berjalan naik */
+.input-box input:focus + label,
+.input-box input:valid + label,
+.input-box textarea:focus + label,
+.input-box textarea:valid + label{
+
+    top:-10px;
+    left:12px;
+    font-size:13px;
+    color:#ff4d88;
+
+    animation:geser 0.5s ease;
+}
+
+@keyframes geser{
+    0%{
+        transform:translateX(-30px);
+        opacity:0;
+    }
+
+    100%{
+        transform:translateX(0);
+        opacity:1;
+    }
+}
+
+textarea{
+    resize:none;
+    height:90px;
+}
+
+button{
+    width:100%;
+    margin-top:20px;
+    padding:12px;
+    border:none;
+    border-radius:15px;
+    background:linear-gradient(90deg,#ff4d88,#ff7eb3);
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+#hasil{
+    margin-top:20px;
+    background:#fff0f6;
+    padding:15px;
+    border-radius:15px;
+    animation:fade 1s ease;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+img{
+    width:180px;
+    margin-top:20px;
+    border-radius:20px;
+    animation:goyang 2s infinite;
+}
+
+@keyframes goyang{
+    0%{
+        transform:rotate(0deg);
+    }
+    25%{
+        transform:rotate(3deg);
+    }
+    50%{
+        transform:rotate(0deg);
+    }
+    75%{
+        transform:rotate(-3deg);
+    }
+    100%{
+        transform:rotate(0deg);
+    }
+}
+
+.love{
+    font-size:35px;
+    animation:love 1s infinite;
+}
+
+@keyframes love{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.3);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="bubble"></div>
+<div class="bubble"></div>
+<div class="bubble"></div>
+
+<div class="container">
+
+    <div class="love">💖</div>
+
+    <h1>Permintaan Maaf Dari Aku Untukmu</h1>
+
+    <!-- Nama -->
+    <div class="input-box">
+        <input type="text" id="nama" required>
+        <label>SAYANGKU BACA NYA JANGAN PAKAI EMOSI YAH</label>
+    </div>
+
+    <!-- Kesalahan -->
+    <div class="input-box">
+        <textarea id="kesalahan" required></textarea>
+        <label>KAMU HARUS MAAFFIN AKU YAH</label>
+    </div>
+
+    <button onclick="buatMaaf()">
+       MAAFFIN AKU YAH
+    </button>
+
+    <div id="hasil"></div>
+
+    <img src="c:\Users\USER\Downloads\WhatsApp Image 2026-05-18 at 11.03.34.jpeg">
+
+</div>
+
+<script>
+
+function buatMaaf() {
+
+    let nama = document.getElementById("nama").value;
+    let salah = document.getElementById("kesalahan").value;
+
+    let pesan = `💌 Hai ${nama} 💌
+    Aku minta maaf yah karena aku udah ngikutin temen aku yang nda bener ${salah}. 😔 
+    Aku nda bermaksud ngikutin atau sengaja untuk menggoda gitu, aku nda bermaksud banget, aku cuma nda sengaja aja ngikutin karena aku sering digituin dan aku cemburu😔.
+    Jujur aku nda mau kita udahan gitu aja, kamu mau nda si maaffin aku terus kita balikkan lagi kita bareng-bareng lagi 🥺💖
+    Oiya aku juga mau nanya kok kamu repost kayak gitu lagi sih???, kamu cuma mau manas-manasin aku yah?? but its okeyyy... aku coba ngertiin kamu yah
+    Kita baikkan yukk jangan berantem mulu ah nda bagus tau buat kesehatan hehe..., dibaca nya pake hati kamu yang paling adem yah sayang, Semoga kamu maaffin aku
+    i love you sayangku🤍, maaffin aku yah....`;
+
+    let i = 0;
+    let speed = 40;
+
+    document.getElementById("hasil").innerHTML = "";
+
+    function ketik() {
+        if (i < pesan.length) {
+            document.getElementById("hasil").innerHTML += pesan.charAt(i);
+            i++;
+            setTimeout(ketik, speed);
+        }
+    }
+
+    ketik();
+}
+</script>
+
+</body>
+</html>
